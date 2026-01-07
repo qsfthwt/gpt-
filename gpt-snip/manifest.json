@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "GPT Snip",
+  "version": "0.3.0",
+  "description": "网页内常驻面板：选区截图并发送给 GPT 获取回复",
+  "permissions": ["activeTab", "tabs", "storage"],
+  "host_permissions": ["https://api.openai.com/*"],
+  "action": {
+    "default_title": "GPT Snip"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
